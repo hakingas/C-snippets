@@ -23,9 +23,6 @@ int main()
 	if (Process32First(snapshot, &process)) {
 		while (Process32Next(snapshot, &process))
 		{
-			/* compare process name to the name given as a parameter
-			 * to this function */
-			//cout << "Process name: " << process.szExeFile << " and id: " << process.th32ProcessID << endl;
 			pid = process.th32ProcessID;
 			wcout << "Process name: " << process.szExeFile << endl;
 			if (pid != 0) {
@@ -54,12 +51,6 @@ int main()
 		}
 	}
 	CloseHandle(snapshot);
-	//CloseHandle(snapshot);
-
-
-	// Process not found if it gets here
-
-    cout << "Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
